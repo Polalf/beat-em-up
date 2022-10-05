@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public float coldown;
     private bool canAttack;
     float timeratk = 0f;
+    //public Transform 
 
 
     private void Start()
@@ -54,6 +55,10 @@ public class Player : MonoBehaviour
         {
             gameObject.SetActive(true);
 
+        }
+        if(currentLife > maxLife)
+        {
+            currentLife = maxLife;
         }
         //attack
         if (Input.GetKeyDown(atkKey))
