@@ -25,6 +25,10 @@ public class Player : MonoBehaviour
     public float coldown;
     private bool canAttack;
     float timeratk = 0f;
+    public Transform attackpoint;
+    public float AtkRange = 0.5f;
+    public LayerMask enemyLayer;
+
     //public Transform 
 
 
@@ -71,9 +75,21 @@ public class Player : MonoBehaviour
     void Attack()
     {
         playerAnimator.SetTrigger("ATK");
-        
-    }
-      
 
-    
+        Collider[] hitEnemies = Physics.OverlapSphere(attackpoint.position, AtkRange, enemyLayer);
+
+        foreach (Collider enemy in hitEnemies)
+        {
+
+        }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (attackpoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackpoint.position, AtkRange);
+    }
+
+
+
 }

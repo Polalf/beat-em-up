@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class enemies : MonoBehaviour
 {
-    [Header("Life")]
-    public int maxLife;
-    public int currentLife;
-    [Header("Move")]
-    [Header("Attack")]
-    void Start()
-    {
+    //[Header("Life")]
+    //public int maxLife;
+    //public int currentLife;
+    //[Header("Move")]
+    //[Header("Attack")]
+    //void Start()
+    //{
         
-    }
+    //}
 
     
-    void Update()
-    {
-        if(currentLife <= 0)
-        {
-            destroy(this.gameObject);
-        }
+    //void Update()
+    //{
+    //    if(currentLife <= 0)
+    //    {
+    //        destroy(this.gameObject);
+    //    }
 
-    }
+    //}
 }
