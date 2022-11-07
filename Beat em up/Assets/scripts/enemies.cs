@@ -35,7 +35,8 @@ public class enemies : MonoBehaviour
     void Start()
     {
         currentSpeed = speed;
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform; 
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = this.GetComponent<Rigidbody>();
          
         currentLife = maxLife;
