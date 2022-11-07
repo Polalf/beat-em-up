@@ -26,7 +26,7 @@ public class enemies : MonoBehaviour
     private bool canAtk;
     float timerAtk = 0f;
     private float distpl;
-    //public Transform player;
+    public Transform player;
     public Transform AtkPoint;
     public float AtkRange;
     public LayerMask PlayerLayer;
@@ -59,7 +59,7 @@ public class enemies : MonoBehaviour
        }
 
         // Attack
-        distpl = Vector2.Distance(transform.position, target.position);
+        distpl = Vector2.Distance(transform.position, player.position);
         //Vector3 DisAtk = target.transform.position - transform.position;
         //new Vector3(diff.x, transform.right.y, diff.z);
         if (distpl <= ViewRange)
