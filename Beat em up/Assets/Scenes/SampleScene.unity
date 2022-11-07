@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &425979211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,11 +453,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2138706010 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3471794090289665112, guid: e7904c8d4da1e924aa881e19c2c8830d, type: 3}
-  m_PrefabInstance: {fileID: 3471794090918413314}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2138706015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3471794090289665117, guid: e7904c8d4da1e924aa881e19c2c8830d, type: 3}
@@ -589,20 +584,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 778888775}
     m_Modifications:
     - target: {fileID: 3764837128797127778, guid: 41523e827812ec045bff5d51740291ed, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2138706015}
-    - target: {fileID: 3764837128797127778, guid: 41523e827812ec045bff5d51740291ed, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 2138706010}
+      objectReference: {fileID: 2138706015}
     - target: {fileID: 3764837128797127780, guid: 41523e827812ec045bff5d51740291ed, type: 3}
       propertyPath: m_Name
       value: GoblinAxe
-      objectReference: {fileID: 0}
-    - target: {fileID: 3764837128797127780, guid: 41523e827812ec045bff5d51740291ed, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3764837128797127781, guid: 41523e827812ec045bff5d51740291ed, type: 3}
       propertyPath: m_RootOrder

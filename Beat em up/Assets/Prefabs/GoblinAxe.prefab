@@ -280,7 +280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3764837127707842584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2886761, y: 0.62, z: 0}
+  m_LocalPosition: {x: -1.456, y: 0.596, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -380,12 +380,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3764837128797127781}
-  - component: {fileID: 3764837128797127779}
   - component: {fileID: 3764837128797127778}
   - component: {fileID: 3764837128797127790}
   - component: {fileID: 3764837128797127776}
   - component: {fileID: 3764837128797127791}
   - component: {fileID: 3764837128797127788}
+  - component: {fileID: 991988406}
   m_Layer: 6
   m_Name: GoblinAxe
   m_TagString: Untagged
@@ -409,19 +409,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3764837128797127779
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3764837128797127780}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.8246603, y: 2.2284005, z: 0.70367014}
-  m_Center: {x: -0.017180102, y: 0.21905014, z: -0.009055394}
 --- !u!114 &3764837128797127778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,15 +424,15 @@ MonoBehaviour:
   EnemyAnimator: {fileID: 3764837128797127791}
   maxLife: 50
   currentLife: 50
-  target: {fileID: 3471794090289665112, guid: e7904c8d4da1e924aa881e19c2c8830d, type: 3}
+  target: {fileID: 0}
   offset: 0
-  speed: 1
+  speed: 2
+  currentSpeed: 0
   EnemyDamage: 20
-  ViewRange: 2
+  ViewRange: 2.5
   coldown: 3
-  player: {fileID: 0}
   AtkPoint: {fileID: 3764837127707842585}
-  AtkRange: 0.5
+  AtkRange: 0.3
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -500,11 +487,25 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3764837128797127780}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 5
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!136 &991988406
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764837128797127780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.73625904
+  m_Height: 2.56369
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.605818, z: -0.23625903}

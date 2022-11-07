@@ -17,6 +17,7 @@ public class enemies : MonoBehaviour
     [Header("Move")]
     private Rigidbody rb;
     public float speed;
+    public float currentSpeed;
 
     [Header("Attack")]
     public int EnemyDamage;
@@ -25,7 +26,7 @@ public class enemies : MonoBehaviour
     private bool canAtk;
     float timerAtk = 0f;
     private float distpl;
-    public Transform player;
+    //public Transform player;
     public Transform AtkPoint;
     public float AtkRange;
     public LayerMask PlayerLayer;
@@ -33,6 +34,7 @@ public class enemies : MonoBehaviour
 
     void Start()
     {
+        currentSpeed = speed;
         target = GameObject.FindGameObjectWithTag("Player").transform;
         rb = this.GetComponent<Rigidbody>();
          
@@ -43,28 +45,47 @@ public class enemies : MonoBehaviour
 
     void Update()
     {
-
-        //Look At
-        transform.right = target.transform.position - transform.position;
+         //Look At
+        Vector3 diff = target.transform.position - transform.position;
+        transform.right = new Vector3 (diff.x , transform.right.y, diff.z)*-1;
 
         //Move
-        
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+       if(distpl > ViewRange)
+       {
+            //currentSpeed = speed;
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, currentSpeed * Time.deltaTime);
+            EnemyAnimator.SetBool("Move", true);
+            
+       }
 
         // Attack
-        distpl = Vector2.Distance(transform.position, player.position);
-
-        if (distpl <= ViewRange && canAtk)
+        distpl = Vector2.Distance(transform.position, target.position);
+        //Vector3 DisAtk = target.transform.position - transform.position;
+        //new Vector3(diff.x, transform.right.y, diff.z);
+        if (distpl <= ViewRange)
         {
-            Attack();
-            canAtk = false;
-            timerAtk = 0;
+            currentSpeed = 0;
+            EnemyAnimator.SetBool("Move", false);
+
+            if (canAtk) 
+            { 
+                Attack();
+                canAtk = false;
+                timerAtk = 0;
+            }
 
         }
-        if(timerAtk >= coldown)
+        else
+        {
+
+            currentSpeed = speed;
+
+        }
+
+        if (timerAtk >= coldown)
         {
             canAtk = true;
-        }
+        }        
         else
         {
             timerAtk += Time.deltaTime;
@@ -93,9 +114,7 @@ public class enemies : MonoBehaviour
             return;
         Gizmos.DrawWireSphere(AtkPoint.position, AtkRange);
     }
-
-
-
+    
 
     public void EnemyTakeDamage(int damage)
     {

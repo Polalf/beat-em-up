@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-
+        playerAnimator.SetFloat("Speed", move.x);
         //LIFE
         if (currentLife <= 0)
         {
