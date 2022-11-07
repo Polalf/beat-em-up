@@ -13,6 +13,7 @@ public class enemies : MonoBehaviour
     [Header("Look At")]
     public Transform target;
     public float offset;
+    public bool isStatic = false;
 
     [Header("Move")]
     private Rigidbody rb;
@@ -30,17 +31,24 @@ public class enemies : MonoBehaviour
     public Transform AtkPoint;
     public float AtkRange;
     public LayerMask PlayerLayer;
-
+    
 
     void Start()
     {
         currentSpeed = speed;
         target = GameObject.FindGameObjectWithTag("Player").transform; 
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
         rb = this.GetComponent<Rigidbody>();
          
         currentLife = maxLife;
         canAtk = true;
+
+        if(isStatic)
+        {
+            target = null;
+        }
     }
     
 
@@ -53,16 +61,15 @@ public class enemies : MonoBehaviour
         //Move
        if(distpl > ViewRange)
        {
-            //currentSpeed = speed;
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, currentSpeed * Time.deltaTime);
+            
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed * Time.deltaTime);
             EnemyAnimator.SetBool("Move", true);
             
        }
 
         // Attack
         distpl = Vector2.Distance(transform.position, player.position);
-        //Vector3 DisAtk = target.transform.position - transform.position;
-        //new Vector3(diff.x, transform.right.y, diff.z);
+       
         if (distpl <= ViewRange)
         {
             currentSpeed = 0;
