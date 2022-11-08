@@ -437,7 +437,7 @@ MonoBehaviour:
   EnemyAnimator: {fileID: 3764837128797127791}
   maxLife: 50
   currentLife: 50
-  target: {fileID: 0}
+  target: {fileID: 3471794090289665112, guid: e7904c8d4da1e924aa881e19c2c8830d, type: 3}
   offset: 0
   speed: 1
   EnemyDamage: 20

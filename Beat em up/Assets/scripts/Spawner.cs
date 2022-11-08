@@ -8,28 +8,41 @@ public class Spawner : MonoBehaviour
     public float Coldown;
     float timerSpawn = 0f;
     bool canSpawn = true;
-    public transform SpawnerPos;
+    public Transform SpawnerPos;
+    public int MaxSpawn;
+    private int Spawns = 0;
            
+    void Start ()
+    {
+        Spawns = 0;
+    }
+
     void Update()
     {
-        if(canSpawn)
+        if (Spawns < MaxSpawn)
         {
-            Spawn();
-            timerSpawn = 0;
-            canSpawn = false;
-        }
-        if(timerSpawn >= Coldown)
-        {
-            canSpawn = true;
-        }
-        else
-        {
-            timerSpawn += Time.deltaTime;
+            if (canSpawn)
+            {
+                Spawn();
+                timerSpawn = 0;
+                canSpawn = false;
+                Spawns++;
+
+
+            }
+            if (timerSpawn >= Coldown)
+            {
+                canSpawn = true;
+            }
+            else
+            {
+                timerSpawn += Time.deltaTime;
+            }
         }
     }
     private void Spawn()
     {
-        GameObject enemy = Instatiate(Enemy, SpawnerPos.position, SpawnerPos.Rotation); 
+        GameObject enemy = Instantiate(Enemy, SpawnerPos.position, SpawnerPos.rotation); 
     }
 
 }

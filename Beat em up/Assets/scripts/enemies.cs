@@ -11,7 +11,7 @@ public class enemies : MonoBehaviour
     public int currentLife;
 
     [Header("Look At")]
-    public GameObject target;
+    public Transform target;
     public float offset;
 
     [Header("Move")]
@@ -33,18 +33,19 @@ public class enemies : MonoBehaviour
 
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         rb = this.GetComponent<Rigidbody>();
          
         currentLife = maxLife;
         canAtk = true;
     }
-
+    
 
     void Update()
     {
 
         //Look At
-        transform.up = target.transform.position - transform.position;
+        transform.right = target.transform.position - transform.position;
 
         //Move
         
