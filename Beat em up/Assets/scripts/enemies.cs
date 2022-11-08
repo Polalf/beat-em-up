@@ -16,6 +16,7 @@ public class enemies : MonoBehaviour
 
     [Header("Move")]
     private Rigidbody rb;
+    public float speed;
 
     [Header("Attack")]
     public int EnemyDamage;
@@ -43,17 +44,22 @@ public class enemies : MonoBehaviour
     {
 
         //Look At
-        //float angle = Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(new Vector3(0, angle + offset, 0));
-        //if (target =)
+        transform.up = target.transform.position - transform.position;
 
         //Move
-        //Vector3 direction = player.position - transform.position;
-        //float angle = Mathf.Atan2(direction.y, direction.x ) * Mathf.Rad2Deg;
-        //rb.rotation = angle;
+        
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+
         // Attack
         distpl = Vector2.Distance(transform.position, player.position);
 
+        if (distpl <= ViewRange && canAtk)
+        {
+            Attack();
+            canAtk = false;
+            timerAtk = 0;
+
+        }
         if(timerAtk >= coldown)
         {
             canAtk = true;
@@ -63,13 +69,6 @@ public class enemies : MonoBehaviour
             timerAtk += Time.deltaTime;
         }
 
-        if (distpl <= ViewRange && canAtk)
-        {
-            Attack();
-            canAtk = false;
-            timerAtk = 0;
-
-        }
 
         //if (currentLife <= 0)
         //{
