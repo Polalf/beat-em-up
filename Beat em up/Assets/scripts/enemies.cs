@@ -4,31 +4,111 @@ using UnityEngine;
 
 public class enemies : MonoBehaviour
 {
+    public Animator EnemyAnimator;
+
     [Header("Life")]
     public int maxLife;
     public int currentLife;
+
+    [Header("Look At")]
+    public GameObject target;
+    public float offset;
+
     [Header("Move")]
+    private Rigidbody rb;
+
     [Header("Attack")]
-    public float range;
+    public int EnemyDamage;
+    public float ViewRange;
+    public float coldown;
+    private bool canAtk;
+    float timerAtk = 0f;
     private float distpl;
     public Transform player;
+    public Transform AtkPoint;
+    public float AtkRange;
+    public LayerMask PlayerLayer;
+
+
     void Start()
     {
-
+        rb = this.GetComponent<Rigidbody>();
+         
+        currentLife = maxLife;
+        canAtk = true;
     }
 
 
     void Update()
     {
+
+        //Look At
+        //float angle = Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.Euler(new Vector3(0, angle + offset, 0));
+        //if (target =)
+
+        //Move
+        //Vector3 direction = player.position - transform.position;
+        //float angle = Mathf.Atan2(direction.y, direction.x ) * Mathf.Rad2Deg;
+        //rb.rotation = angle;
+        // Attack
         distpl = Vector2.Distance(transform.position, player.position);
-        if(distpl<=range)
+
+        if(timerAtk >= coldown)
         {
+            canAtk = true;
+        }
+        else
+        {
+            timerAtk += Time.deltaTime;
+        }
+
+        if (distpl <= ViewRange && canAtk)
+        {
+            Attack();
+            canAtk = false;
+            timerAtk = 0;
 
         }
-        if (currentLife <= 0)
+
+        //if (currentLife <= 0)
+        //{
+        //    Destroy(this.gameObject);
+        //}
+    }
+    private void Attack()
+    {
+        EnemyAnimator.SetTrigger("ATKenemy");
+
+        Collider[] hitPlayer = Physics.OverlapSphere(AtkPoint.position, AtkRange, PlayerLayer);
+
+        foreach (Collider player in hitPlayer)
         {
-            Destroy(this.gameObject);
+            player.GetComponent<Player>().PlayerTakeDamage(EnemyDamage);
         }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (AtkPoint == null)
+            return;
+        Gizmos.DrawWireSphere(AtkPoint.position, AtkRange);
+    }
+
+
+
+
+    public void EnemyTakeDamage(int damage)
+    {
+        currentLife -= damage;
+        
+        if(currentLife <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Debug.Log("muelto");
 
     }
 }

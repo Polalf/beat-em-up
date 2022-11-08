@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
         currentLife = maxLife;
         healthBar.SetMaxHealth(maxLife);
+        canAttack = true;
     }
 
     void Update()
@@ -65,13 +66,24 @@ public class Player : MonoBehaviour
             currentLife = maxLife;
         }
         //attack
-        if (Input.GetKeyDown(atkKey))
+        if (timeratk >= coldown)
+        {
+            canAttack = true;
+        }
+        else
+        {
+            timeratk += Time.deltaTime;
+        }
+        if (Input.GetKeyDown(atkKey) && canAttack)
         {
             Attack();
+            canAttack = false;
+            timeratk = 0;
         }
 
 
     }
+  
     void Attack()
     {
         playerAnimator.SetTrigger("ATK");
@@ -80,7 +92,17 @@ public class Player : MonoBehaviour
 
         foreach (Collider enemy in hitEnemies)
         {
+            enemy.GetComponent<enemies>().EnemyTakeDamage(Damage);
+        }
+    } 
+    public void PlayerTakeDamage(int enemyDamage)
+    {
+        currentLife -= enemyDamage;
 
+        if (currentLife <= 0)
+        {
+            //GameOver
+            Debug.Log("GameOver");
         }
     }
     private void OnDrawGizmosSelected()
@@ -89,7 +111,9 @@ public class Player : MonoBehaviour
             return;
         Gizmos.DrawWireSphere(attackpoint.position, AtkRange);
     }
+    
 
 
 
 }
+ 
