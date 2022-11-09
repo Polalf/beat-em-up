@@ -43,6 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: objects
+    uniqueID: 3790040731
+    locked: 0
   - name: 'P & E '
     uniqueID: 3490257587
     locked: 0

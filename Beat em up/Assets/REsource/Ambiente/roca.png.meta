@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 57d9c17d2373cd244876fc6de5fa1745
+guid: 750a5726d535b8441b3267c175518356
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -63,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -105,43 +105,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bar
+      name: roca
       rect:
         serializedVersion: 2
-        x: 122
-        y: 160
-        width: 308
-        height: 650
+        x: 30
+        y: 140
+        width: 390
+        height: 250
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d22f4dc86faf53d4a8984f7cdbfe1429
-      internalID: -2090755880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HP
-      rect:
-        serializedVersion: 2
-        x: 610
-        y: 180
-        width: 310
-        height: 610
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6cc8e798ab6ce342ba23f14e8d0f4ee
-      internalID: -972520514
+      spriteID: d6a07837db28e364bad7b133f4ebd86a
+      internalID: 1701364876
       vertices: []
       indices: 
       edges: []
@@ -157,8 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bar: -2090755880
-      HP: -972520514
+      roca: 1701364876
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -27,7 +27,6 @@ public class enemies : MonoBehaviour
     private bool canAtk;
     float timerAtk = 0f;
     private float distpl;
-    public Transform player;
     public Transform AtkPoint;
     public float AtkRange;
     public LayerMask PlayerLayer;
@@ -38,45 +37,58 @@ public class enemies : MonoBehaviour
         currentSpeed = speed;
         target = GameObject.FindGameObjectWithTag("Player").transform; 
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        
 
         rb = this.GetComponent<Rigidbody>();
          
         currentLife = maxLife;
         canAtk = true;
 
-        if(isStatic)
-        {
-            target = null;
-        }
+        
     }
-    
+
 
     void Update()
     {
-         //Look At
+        //Look At
         Vector3 diff = target.transform.position - transform.position;
-        transform.right = new Vector3 (diff.x , transform.right.y, diff.z)*-1;
+        transform.right = new Vector3(diff.x, transform.right.y, diff.z) * -1;
+        if (isStatic)
+
+        {
+
+            transform.right = new Vector3(diff.x, transform.right.y, diff.z) * 0;
+            speed = 0;
+        }
 
         //Move
-       if(distpl > ViewRange)
+        if (distpl > ViewRange)
+            EnemyAnimator.SetBool("POnRange", false);
        {
+            if(speed != 0)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, currentSpeed * Time.deltaTime); 
+                EnemyAnimator.SetBool("Move", true);
+
+            }
             
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, currentSpeed * Time.deltaTime);
-            EnemyAnimator.SetBool("Move", true);
+           
             
        }
 
         // Attack
-        distpl = Vector2.Distance(transform.position, player.position);
+        distpl = Vector2.Distance(transform.position, target.position);
        
         if (distpl <= ViewRange)
         {
+            EnemyAnimator.SetBool("POnRange", true);
             currentSpeed = 0;
             EnemyAnimator.SetBool("Move", false);
 
             if (canAtk) 
-            { 
+            {
+                
+
                 Attack();
                 canAtk = false;
                 timerAtk = 0;
@@ -87,7 +99,7 @@ public class enemies : MonoBehaviour
         {
 
             currentSpeed = speed;
-
+           
         }
 
         if (timerAtk >= coldown)
