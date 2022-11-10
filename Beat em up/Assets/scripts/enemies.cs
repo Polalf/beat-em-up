@@ -148,6 +148,7 @@ public class enemies : MonoBehaviour
     void Die()
     {
         Debug.Log("muelto");
+        Destroy(gameObject);
 
     }
 }

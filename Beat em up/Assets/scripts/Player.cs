@@ -98,11 +98,13 @@ public class Player : MonoBehaviour
     public void PlayerTakeDamage(int enemyDamage)
     {
         currentLife -= enemyDamage;
+        healthBar.SetHealth(currentLife);
 
         if (currentLife <= 0)
         {
             //GameOver
             Debug.Log("GameOver");
+
         }
     }
     private void OnDrawGizmosSelected()
