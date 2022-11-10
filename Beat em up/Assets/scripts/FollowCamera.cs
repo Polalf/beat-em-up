@@ -9,7 +9,7 @@ public class FollowCamera : MonoBehaviour
     
     void LateUpdate()
     {
-        Vector3 Pos = new Vector3(Player.position.x, 2, -10);
+        Vector3 Pos = new Vector3(Player.position.x, 0, -10);
         transform.position = Vector3.Slerp(transform.position, Pos, Speed * Time.deltaTime);
     }
 }
