@@ -14,7 +14,7 @@ public class Enter3D : MonoBehaviour
     {
         Spawner.SetActive(false);
     }
-
+    
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("NextLvl"))
@@ -26,11 +26,9 @@ public class Enter3D : MonoBehaviour
             Spawner.SetActive(true);
             MainCamera.GetComponent<FollowCamera>().ChangeSpeed(0f);
             Destroy(collision.gameObject);
+            
         }
-        //if(collision.gameObject.CompareTag("FinalMapa"))
-        //{
-        //    MainCamera.GetComponent<FollowCamera>().ChangeSpeed(0f);
-        //}
+        
         
         
 

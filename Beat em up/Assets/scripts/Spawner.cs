@@ -40,6 +40,10 @@ public class Spawner : MonoBehaviour
                 timerSpawn += Time.deltaTime;
             }
         }
+        if(Spawns >= MaxSpawn)
+        {
+            Destroy(gameObject);
+        }
     }
     private void Spawn()
     {
