@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
     public Transform SpawnerPos;
     public int MaxSpawn;
     private int Spawns = 0;
+    public Camera MainCamera;
            
     void Start ()
     {
@@ -26,7 +27,7 @@ public class Spawner : MonoBehaviour
                 Spawn();
                 timerSpawn = 0;
                 canSpawn = false;
-                Spawns++;
+                
 
 
             }
@@ -42,7 +43,10 @@ public class Spawner : MonoBehaviour
     }
     private void Spawn()
     {
-        GameObject enemy = Instantiate(Enemy, SpawnerPos.position, SpawnerPos.rotation); 
+        GameObject enemy = Instantiate(Enemy, SpawnerPos.position, SpawnerPos.rotation);
+
+        Spawns++;
+        MainCamera.GetComponent<FollowCamera>().EnemiesCount(Spawns);
     }
 
 }

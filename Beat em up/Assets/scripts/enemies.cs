@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class enemies : MonoBehaviour
     [Header("Life")]
     public int maxLife;
     public int currentLife;
+    public Camera MainCamera;
 
     [Header("Look At")]
     public Transform target;
@@ -35,7 +37,9 @@ public class enemies : MonoBehaviour
     void Start()
     {
         currentSpeed = speed;
-        target = GameObject.FindGameObjectWithTag("Player").transform; 
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        MainCamera = Camera.current;
 
         
 
@@ -50,6 +54,7 @@ public class enemies : MonoBehaviour
 
     void Update()
     {
+        
         //Look At
         Vector3 diff = target.transform.position - transform.position;
         transform.right = new Vector3(diff.x, transform.right.y, diff.z) * -1;
@@ -149,6 +154,7 @@ public class enemies : MonoBehaviour
     {
         Debug.Log("muelto");
         Destroy(gameObject);
+        MainCamera.GetComponent<FollowCamera>().EnemiesDead(1);
 
     }
 }
