@@ -15,6 +15,7 @@ public class FollowCamera : MonoBehaviour
     private void Start()
     {
         CurrentSpeed = Speed;
+        Player.gameObject.GetComponent<Enter3D>().AddSpeed(Speed);
     }
     public void ChangeSpeed(float NewSpeed)
     {

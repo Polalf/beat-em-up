@@ -8,6 +8,8 @@ TagManager:
   - Entrada
   - NextLvl
   - StartSpawner
+  - FinalMapa
+  - inMap
   layers:
   - Default
   - TransparentFX
