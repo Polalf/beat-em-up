@@ -10,6 +10,7 @@ TagManager:
   - StartSpawner
   - FinalMapa
   - inMap
+  - Tope
   layers:
   - Default
   - TransparentFX

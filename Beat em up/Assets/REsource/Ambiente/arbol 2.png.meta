@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f6cb6bd3b71d6df4fa28d9ac13555912
+guid: 78791d94694518449aec553a21f110ea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,34 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: canon
+      name: arbol 2
       rect:
         serializedVersion: 2
-        x: 110
-        y: 560
-        width: 710
-        height: 470
-      alignment: 9
-      pivot: {x: 1, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a3b104dc9aac8d45b733e69675ed60e
-      internalID: -755882997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bullet
-      rect:
-        serializedVersion: 2
-        x: 1320
-        y: 60
-        width: 290
-        height: 290
+        x: 190
+        y: 20
+        width: 1230
+        height: 1460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,50 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b57418552d0f134485a97349843a4c6
-      internalID: -1005683588
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: canonBack
-      rect:
-        serializedVersion: 2
-        x: 950
-        y: 530
-        width: 500
-        height: 530
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e69bb07097113cc459a907e55631115e
-      internalID: 447799003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: body
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 20
-        width: 840
-        height: 470
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 531f870cb6dd11a428063f25766680df
-      internalID: 1387106231
+      spriteID: 3130cc2b3c801ed408b6261e67b87c16
+      internalID: -1024869086
       vertices: []
       indices: 
       edges: []
@@ -199,10 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bullet: -1005683588
-      canonBack: 447799003
-      canon: -755882997
-      body: 1387106231
+      arbol 2: -1024869086
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
