@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b353dffda047143a55a54e51b989d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatorShooter: {fileID: 0}
+  animatorShooter: {fileID: 6362802}
   range: 30
   player: {fileID: 0}
   Shootpos: {fileID: 1983798439822135675}

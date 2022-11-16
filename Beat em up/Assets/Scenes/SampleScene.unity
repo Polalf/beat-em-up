@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!95 &6362802 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6362802, guid: d9815ce2a6b8adc41a1bd398319c38f2, type: 3}
-  m_PrefabInstance: {fileID: 270136296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &270136296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,10 +182,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1358414852}
-    - target: {fileID: 7500964290757902404, guid: d9815ce2a6b8adc41a1bd398319c38f2, type: 3}
-      propertyPath: animatorShooter
-      value: 
-      objectReference: {fileID: 6362802}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9815ce2a6b8adc41a1bd398319c38f2, type: 3}
 --- !u!1 &519420028
